@@ -14,17 +14,15 @@ using namespace std;
 */
 template <typename T>
 int binary_search(const vector<T> &items, int first, int last, T target) {
-	// FIXME: Implement recursive binary search
 	if (first <= last) {
 		int mid = first + (last - first) / 2;
 		if (target == items[mid]) {
 			return mid;
-		}
-		if (target < items[mid]) {
+		} 
+		if (target < items[mid]) {    //if target is in the lower half
 			return binary_search(items, first, mid - 1, target);
-		}
+		}  // if the target is in the top half
 		return binary_search(items, mid + 1, last, target);
-		
 	}
 	
 	return -1;
